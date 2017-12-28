@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Loader.Controls;assembly=Loader"
+    xmlns:local="clr-namespace:Loader.Sample.Controls"
+    x:Class="Loader.Sample.Views.CustomPage">
+    <controls:Loader
+        LoaderViewModel="{Binding Loader}">
+        <!-- ErrorView -->
+        <controls:Loader.ErrorView>
+            <StackLayout
+                VerticalOptions="Center">
+                <local:SvgImage
+                    WidthRequest="200"
+                    HeightRequest="200"
+                    HorizontalOptions="Center"
+                    SvgPath="Images/error.svg" />
+                <Label
+                    Margin="0,12,0,0"
+                    Text="{Binding Loader.ErrorMessage}"
+                    FontSize="Small"
+                    HorizontalTextAlignment="Center" />
+                <Button
+                    BackgroundColor="#FF6666"
+                    TextColor="White"
+                    Margin="12"
+                    Command="{Binding Loader.RefreshCommand}"
+                    Text=" Try again! " />
+            </StackLayout>
+        </controls:Loader.ErrorView>
+        <controls:Loader.EmptyView>
+            <StackLayout
+                VerticalOptions="Center">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Text="Empty..."
+                    FontSize="26" />
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Text="Nothing to see :("
+                    FontSize="Small" />
+                <Button
+                    BackgroundColor="#6666FF"
+                    TextColor="White"
+                    Margin="12"
+                    Text="Reload!"
+                    Command="{Binding Loader.RefreshCommand}" />
+            </StackLayout>
+        </controls:Loader.EmptyView>
+        <!-- Normal content -->
+        <StackLayout
+            VerticalOptions="Center">
+            <local:SvgImage
+                WidthRequest="200"
+                HeightRequest="200"
+                HorizontalOptions="Center"
+                SvgPath="Images/thumb.svg" />
+            <Label
+                HorizontalTextAlignment="Center"
+                Text="Yay, successfully loaded!"
+                FontSize="Large" />
+            <Button
+                BackgroundColor="#00A200"
+                TextColor="White"
+                Margin="12"
+                Text="Refresh"
+                Command="{Binding Loader.RefreshCommand}" />
+        </StackLayout>
+    </controls:Loader>
+</ContentPage>

@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+    
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.121934" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg" Version="2.3.2" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.3.2" />
+  </ItemGroup>
+    
+  <ItemGroup>
+    <Folder Include="Controls\" />
+    <Folder Include="Toolkit\" />
+    <Folder Include="Images\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\Default\" />
+    <Folder Include="Views\Custom\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Images\error.svg" />
+    <None Remove="Images\thumb.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\error.svg" />
+    <EmbeddedResource Include="Images\thumb.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Loader\Loader.csproj" />
+  </ItemGroup>
+</Project>

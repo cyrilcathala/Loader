@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackOnBuild>true</PackOnBuild>
+    <PackageId>Loader</PackageId>
+    <PackageVersion>1.0</PackageVersion>
+    <Authors>Cyril Cathala</Authors>
+    <Description>Loader control for Xamarin.Forms</Description>
+    <Owners>Cyril Cathala</Owners>
+    <PackageProjectUrl>http://github.com/</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.121934" />
+    <PackageReference Include="NuGet.Build.Packaging" Version="0.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Controls\Loader.xaml.cs">
+      <DependentUpon>..\..\Loader.Sample\Controls\Controls\Loader.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Controls\Loadingndicator.xaml.cs">
+      <DependentUpon>..\..\Loader.Sample\Controls\Controls\Loadingndicator.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Loader.Controls"
+    x:Class="Loader.Controls.Loader"
+    x:Name="Loader">
+    <ContentView.Content>
+        <Grid>
+            <ContentView
+                x:Name="ContentContainer"
+                IsVisible="false" />
+            <ContentView
+                x:Name="LoadingIndicatorContainer"
+                InputTransparent="True">
+                <controls:LoadingIndicator />
+            </ContentView>
+            <ContentView
+                x:Name="ErrorContainer"
+                IsVisible="False">
+                <StackLayout
+                    BindingContext="{x:Reference Loader}"
+                    VerticalOptions="Center"
+                    CompressedLayout.IsHeadless="true">
+                    <Label
+                        Text="{Binding LoaderViewModel.ErrorMessage}"
+                        FontSize="Small"
+                        HorizontalTextAlignment="Center" />
+                    <Button
+                        Margin="0,12,0,0"
+                        WidthRequest="120"
+                        HorizontalOptions="Center"
+                        Command="{Binding LoaderViewModel.RefreshCommand}"
+                        Text="Refresh" />
+                </StackLayout>
+            </ContentView>
+            <ContentView
+                x:Name="EmptyContainer"
+                IsVisible="False">
+                <StackLayout
+                    BindingContext="{x:Reference Loader}"
+                    VerticalOptions="Center"
+                    CompressedLayout.IsHeadless="true">
+                    <Label
+                        x:Name="EmptyViewLabel"
+                        HorizontalTextAlignment="Center"
+                        Text="{Binding LoaderViewModel.EmptyMessage}" />
+                </StackLayout>
+            </ContentView>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

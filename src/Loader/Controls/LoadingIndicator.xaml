@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<controls:LoadingIndicatorBase
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Loader.Controls"
+    x:Class="Loader.Controls.LoadingIndicator">
+    <Grid>
+        <BoxView
+            BackgroundColor="#10000000"
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill"
+            x:Name="Overlay" />
+        <ActivityIndicator
+            x:Name="Loading"/>
+    </Grid>
+</controls:LoadingIndicatorBase>
