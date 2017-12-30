@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using FFImageLoading.Forms.Touch;
+using FFImageLoading.Svg.Forms;
 using Foundation;
 using Loader.Sample;
 using UIKit;
@@ -16,6 +17,8 @@ namespace Loader.iOS
             global::Xamarin.Forms.Forms.Init();
 
             CachedImageRenderer.Init();
+            var ignore = typeof(SvgCachedImage);
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

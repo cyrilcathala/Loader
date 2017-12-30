@@ -6,11 +6,13 @@
     x:Class="Loader.Controls.LoadingIndicator">
     <Grid>
         <BoxView
-            BackgroundColor="#10000000"
+            BackgroundColor="#15000000"
             HorizontalOptions="Fill"
             VerticalOptions="Fill"
             x:Name="Overlay" />
         <ActivityIndicator
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
             x:Name="Loading"/>
     </Grid>
 </controls:LoadingIndicatorBase>

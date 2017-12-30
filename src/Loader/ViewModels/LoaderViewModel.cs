@@ -59,6 +59,8 @@ namespace Loader.ViewModels
 
                 if (result.IsEmpty)
                 {
+                    EmptyMessage = string.IsNullOrEmpty(result.EmptyMessage) ? "Nothing to see" : result.EmptyMessage;
+
                     State = LoaderState.Empty;
                     return;
                 }

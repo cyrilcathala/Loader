@@ -5,12 +5,8 @@ namespace Loader.Sample.Toolkit
 {
     public class ViewModelBase : NotificationObject
     {
-        private LoaderViewModel _loader;
-        public LoaderViewModel Loader
-        {
-            get { return _loader; }
-            set { SetProperty(ref _loader, value); }
-        }
+        private readonly LoaderViewModel _loader;
+        public LoaderViewModel Loader => _loader;
 
         private string title = string.Empty;
 
@@ -18,33 +14,6 @@ namespace Loader.Sample.Toolkit
         {
             get { return title; }
             set { SetProperty(ref title, value); }
-        }
-
-        private int _busyCounter;
-
-        /// <summary>
-        /// Counter to increment then decrement for each busy call, and linked with the <see cref="IsBusy"/> property
-        /// </summary>
-        protected int BusyCounter
-        {
-            get { return _busyCounter; }
-            set
-            {
-                if (_busyCounter != value)
-                {
-                    _busyCounter = value;
-                    RaisePropertyChanged(nameof(IsBusy));
-                }
-            }
-        }
-
-        /// <summary>
-        /// Indicates whether this ViewModel is busy.
-        /// </summary>
-        /// <value><c>true</c> if is busy; otherwise, <c>false</c>.</value>
-        public bool IsBusy
-        {
-            get { return BusyCounter > 0; }
         }
 
         public ViewModelBase()
